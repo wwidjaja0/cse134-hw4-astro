@@ -3,14 +3,14 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    init();
+    initForm();
 });
 
 /**
  * Handles form submission and validation.
  * @returns {void}
  */
-function init() {
+function initForm() {
     const nameInputEl = document.getElementById('name');
     const emailInputEl = document.getElementById('email');
     const messageInputEl = document.getElementById('message');
@@ -151,7 +151,6 @@ function init() {
     function auditError(errorMsg) {
         // only add if error triggered is different
         if (errorMsg !== formErrors[formErrors.length - 1]) {
-            console.log(errorMsg);
             formErrors.push(errorMsg);
         }
     }

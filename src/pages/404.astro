@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NotFoundImage from "../assets/imgs/404.png";
+---
+
+<Layout
+  title="it's not you it's me • will widjaja"
+  description="uh oh. i made an oopsie"
+  footerMsg=`"Program received signal SIGSEGV, Segmentation fault."`
+>
+  <main-header>
+    <h2>it's not you it's me</h2>
+    <figure>
+      <figcaption>
+        <section aria-labelledby="error-heading">
+          <p id="error-heading">
+            whoops! we found an error
+            <span role="img" aria-label="Playful bear face"> ( ͡° ᴥ ͡°) </span>
+          </p>
+        </section>
+      </figcaption>
+      <img
+        src={NotFoundImage.src}
+        alt="oops! 404 page not found"
+        width="128px"
+        height="128px"
+      />
+    </figure>
+  </main-header>
+  <p><i>The page you landed on is just barely out of reach...</i></p>
+  <p>
+    Don't fret! I can still smell the <a href="/">home page</a>
+    from here.
+  </p>
+</Layout>

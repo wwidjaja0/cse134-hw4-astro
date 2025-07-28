@@ -1,0 +1,31 @@
+---
+import DefaultProfileImage from "../assets/imgs/me.jpg";
+
+interface Props {
+  profileImage?: ImageMetadata;
+  description: string;
+  width: number;
+  height: number;
+}
+const {
+  profileImage = DefaultProfileImage,
+  description = "",
+  width = "200px",
+  height = "200px",
+} = Astro.props;
+---
+
+<div id="profile">
+  <img
+    src={profileImage.src}
+    alt={description}
+    width={width}
+    height={height}
+  />
+  <section>
+    <h3>William Widjaja</h3>
+    <p>Pronouns: he/him</p>
+    <p>20 years old</p>
+    <p>Based in San Diego / California</p>
+  </section>
+</div>

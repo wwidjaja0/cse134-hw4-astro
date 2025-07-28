@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import innout128 from "../assets/imgs/innout-128x128.png";
+import innout32 from "../assets/imgs/innout-32x32.png";
+import mcd128 from "../assets/imgs/mcd-128x128.png";
+import mcd32 from "../assets/imgs/mcd-32x32.png";
+---
+
+<Layout
+  title="usual • will widjaja"
+  description="Get me the usual please."
+  footerMsg=`nom nom nom, call me mr. big back`
+>
+  <main-header>
+    <h2>/usual</h2>
+    <p>Want to know what to order for me? Have a look at my usuals.</p>
+  </main-header>
+  <section>
+    <hgroup>
+      <h3>In-N-Out Burger</h3>
+      <img
+        src={innout128.src}
+        srcset={`${innout32.src} 32w, ${innout128.src} 128w`}
+        sizes="(max-width: 600px) 32px, 128px"
+        alt="In-N-Out Logo"
+      />
+    </hgroup>
+    <ol>
+      <li>double double combo no onion (on the burger)</li>
+      <li>replace the fries w/ animal fries</li>
+      <li>medium pink lemonade</li>
+    </ol>
+    <hgroup>
+      <h3>McDonalds</h3>
+      <img
+        src={mcd128.src}
+        srcset={`${mcd32.src} 32w, ${mcd128.src} 128w`}
+        sizes="(max-width: 600px) 32px, 128px"
+        alt="McDonalds Logo"
+      />
+    </hgroup>
+    <ol>
+      <li>big mac meal</li>
+      <li>medium fries</li>
+      <li>medium unsweetened iced tea</li>
+    </ol>
+    <hgroup>
+      <h3>Chick-fil-A</h3>
+    </hgroup>
+    <ol>
+      <li>spicy chicken sandwich meal</li>
+      <li>medium waffle fries OR medium mac and cheese</li>
+      <li>medium sunjoy (1/2 sweet tea, 1/2 lemonade)</li>
+    </ol>
+  </section>
+</Layout>

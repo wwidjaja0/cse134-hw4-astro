@@ -1,10 +1,15 @@
 ---
-// Import the global.css file here so that it is included on
+// Import the main.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import '../assets/css/main.css';
+import Font from '../assets/fonts/DMSans-Regular.ttf';
+import Favicon from '../assets/icons/favicon.ico';
+import AppleTouchIcon from '../assets/icons/apple-touch-icon.png';
+import Favicon32 from '../assets/icons/favicon-32x32.png';
+import Favicon16 from '../assets/icons/favicon-16x16.png';
 import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
+import OpenGraphImage from '../assets/imgs/opengraph.png';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 interface Props {
 	title: string;
@@ -14,25 +19,18 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = OpenGraphImage } = Astro.props;
 ---
 
 <!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
-/>
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href={Font} as="font" type="font/ttf" crossorigin="anonymous" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -47,11 +45,19 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={image.src} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={image.src} />
+
+<!-- Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href={AppleTouchIcon.src} />
+<link rel="icon" type="image/png" sizes="32x32" href={Favicon32.src} />
+<link rel="icon" type="image/png" sizes="16x16" href={Favicon16.src} />
+<link rel="icon" type="image/x-icon" href={Favicon} />
+
+<link rel="manifest" href="/site.webmanifest" />
