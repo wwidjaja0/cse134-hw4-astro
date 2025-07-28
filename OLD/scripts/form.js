@@ -151,6 +151,7 @@ function init() {
     function auditError(errorMsg) {
         // only add if error triggered is different
         if (errorMsg !== formErrors[formErrors.length - 1]) {
+            console.log(errorMsg);
             formErrors.push(errorMsg);
         }
     }
